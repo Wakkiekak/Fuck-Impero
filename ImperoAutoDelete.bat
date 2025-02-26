@@ -3,26 +3,24 @@ color 6
 cls
 echo --------- Impero Delete Tool ---------
 
-:: Ask the user if they want to open a link
 set /p userChoice=Wil je mij supporten voor mijn werk? (klik Y of N): 
 if /I "%userChoice%"=="Y" (
     echo Dankje, heel aardig van je.
     timeout /t 2 /nobreak
     start https://www.youtube.com/@wakkiekak
+	start https://www.instagram.com/wakkiekak/
 ) else (
     echo Ok dan niet...
 )
 
 echo.
 
-:: Check if Impero is installed
 echo Kijken of Impero is geinstalleerd...
 wmic product get name | findstr /I "Impero Client" >nul
 if %errorlevel%==0 (
     echo Impero Client is geinstalleerd.
     echo.
 
-    :: Terminate the processes and uninstall
     echo Closing Impero processes...
     taskkill /F /IM ImperoClient.exe
     taskkill /F /IM BackdropClient.exe
